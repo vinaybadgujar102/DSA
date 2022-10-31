@@ -38,4 +38,21 @@ public class LinearSearch {
         return findAllIndex(arr, target, index + 1, list);
 
     }
+
+    //finds and stores the index of target element in Arraylist without using extra argument
+    static ArrayList<Integer> findAllIndex2(int[] arr, int target, int index){
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        if(index == arr.length) return list;
+
+        if(arr[index]==target){
+            list.add(index);
+        }
+
+        ArrayList<Integer> ansFromBelowCalls = findAllIndex2(arr, target, index+1);
+        list.addAll(ansFromBelowCalls);
+        return list;
+
+    }
 }
